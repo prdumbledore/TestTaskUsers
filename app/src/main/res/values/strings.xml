@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Test Task Users</string>
+    <string name="action_settings">Settings</string>
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="is_active">isActive</string>
+    <string name="email">email</string>
+    <string name="name">name</string>
+    <string name="error">Error</string>
+    <string name="gender">gender</string>
+    <string name="age">Age : %1$d</string>
+    <string name="company">Company : %1$s</string>
+    <string name="email_str">Email : </string>
+    <string name="phone">phoneNumber</string>
+    <string name="phone_str">Phone : </string>
+    <string name="address">Address : %1$s</string>
+    <string name="eye_color_str">Eye Color : </string>
+    <string name="eye_color">Eye Color</string>
+    <string name="favorite_fruit_str">Favorite fruit : </string>
+    <string name="favorite_fruit">favorite fruit</string>
+    <string name="registered">registered</string>
+    <string name="latitude_longitude_str">Geolocation : </string>
+    <string name="latitude_longitude">latitude and longitude</string>
+    <string name="about">about</string>
+    <string name="friends_header_str">Friends</string>
+
+</resources>
