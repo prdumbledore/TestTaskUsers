@@ -6,16 +6,15 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
-import androidx.navigation.NavDirections
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import androidx.room.ForeignKey
 import com.eriksargsyan.testtaskusers.R
 import com.eriksargsyan.testtaskusers.model.domain.User
 import com.google.android.material.snackbar.Snackbar
 
 class UserAdapter(private val userList: List<User>, private val actionType: Boolean) :
     RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
+
     class UserViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val card: CardView = itemView.findViewById(R.id.card_user)
         private val name: TextView = itemView.findViewById(R.id.name)
@@ -51,8 +50,6 @@ class UserAdapter(private val userList: List<User>, private val actionType: Bool
     override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
         val listItem = userList[position]
         holder.bind(listItem, actionType)
-
-
     }
 
 }

@@ -2,6 +2,7 @@ package com.eriksargsyan.testtaskusers.model.util
 
 import com.eriksargsyan.testtaskusers.model.domain.EyeColor
 import com.eriksargsyan.testtaskusers.model.domain.Fruit
+import com.eriksargsyan.testtaskusers.model.domain.Gender
 import com.eriksargsyan.testtaskusers.model.domain.User
 import com.eriksargsyan.testtaskusers.model.net.FriendsNet
 import com.eriksargsyan.testtaskusers.model.net.UserNet
@@ -19,7 +20,10 @@ class NetworkMapper @Inject constructor() : EntityMapper<UserNet, User> {
                 else -> EyeColor.COLOR_BLUE
             },
             name = entity.name,
-            gender = entity.gender,
+            gender = when (entity.gender) {
+                "male" -> Gender.MALE
+                else -> Gender.FEMALE
+            },
             company = entity.company,
             email = entity.email,
             phone = entity.phone,
@@ -44,7 +48,7 @@ class NetworkMapper @Inject constructor() : EntityMapper<UserNet, User> {
             age = domainModel.age,
             eyeColor =domainModel.eyeColor.str,
             name = domainModel.name,
-            gender = domainModel.gender,
+            gender = domainModel.gender.str,
             company = domainModel.company,
             email = domainModel.email,
             phone = domainModel.phone,

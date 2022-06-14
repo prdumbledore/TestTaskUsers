@@ -5,6 +5,7 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class UserNet(
+
     @Expose
     val id: Int,
     @Expose

@@ -5,6 +5,7 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class FriendsNet(
+
     @Expose
     val id: Int
 )

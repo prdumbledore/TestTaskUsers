@@ -9,7 +9,7 @@ data class User(
     val age: Int,
     val eyeColor: EyeColor,
     val name: String,
-    val gender: String,
+    val gender: Gender,
     val company: String,
     val email: String,
     val phone: String,
@@ -32,4 +32,9 @@ enum class Fruit(val id: Int, val str: String) {
     APPLE(R.drawable.apple, "apple"),
     BANANA(R.drawable.banana, "banana"),
     STRAWBERRY(R.drawable.strawberry, "strawberry")
+}
+
+enum class Gender(val id: Int, val str: String) {
+    MALE(R.drawable.male, "male"),
+    FEMALE(R.drawable.female, "female")
 }

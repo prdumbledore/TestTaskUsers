@@ -53,27 +53,30 @@ class SecondFragment : Fragment() {
         }
 
         binding.emailAddress.setOnClickListener {
-            val intent = Intent(Intent.ACTION_SENDTO).apply {
-                val mailto = "mailto:" + arrayOf(binding.emailAddress.text).joinToString(",")
-                data = Uri.parse(mailto)
+            secondFragmentVM.apply {
+                onEmailClick(binding.emailAddress.text)
+                buttonEvent.observe(viewLifecycleOwner) {
+                    startActivity(Intent.createChooser(it, null))
+                }
             }
-            startActivity(Intent.createChooser(intent, null))
         }
 
         binding.phoneNumber.setOnClickListener {
-            val intent = Intent(Intent.ACTION_DIAL).apply {
-                val phoneNum = "tel:" + Regex("""[-()\s]""").replace(binding.phoneNumber.text, "")
-                data = Uri.parse(phoneNum)
+            secondFragmentVM.apply {
+                onPhoneClick(binding.phoneNumber.text)
+                buttonEvent.observe(viewLifecycleOwner) {
+                    startActivity(Intent.createChooser(it, null))
+                }
             }
-            startActivity(Intent.createChooser(intent, null))
         }
 
         binding.latitudeLongitude.setOnClickListener {
-            val intent = Intent(Intent.ACTION_VIEW).apply {
-                val geo = binding.latitudeLongitude.text
-                data = Uri.parse("geo:$geo")
+            secondFragmentVM.apply {
+                onGeoClick(binding.latitudeLongitude.text)
+                buttonEvent.observe(viewLifecycleOwner) {
+                    startActivity(Intent.createChooser(it, null))
+                }
             }
-            startActivity(Intent.createChooser(intent, null))
         }
 
     }
@@ -85,9 +88,7 @@ class SecondFragment : Fragment() {
 
     private fun fillField(user: User) {
         binding.apply {
-            if (user.gender == "female")
-                imageGender.setImageResource(R.drawable.female)
-            else imageGender.setImageResource(R.drawable.male)
+            imageGender.setImageResource(user.gender.id)
             name.text = user.name
             age.text = getString(R.string.age, user.age)
             company.text = getString(R.string.company, user.company)
