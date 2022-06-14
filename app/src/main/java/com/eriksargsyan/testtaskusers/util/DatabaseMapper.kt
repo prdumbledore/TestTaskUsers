@@ -1,15 +1,14 @@
-package com.eriksargsyan.testtaskusers.model.util
+package com.eriksargsyan.testtaskusers.util
 
+import com.eriksargsyan.testtaskusers.model.data.database.UserDB
 import com.eriksargsyan.testtaskusers.model.domain.EyeColor
 import com.eriksargsyan.testtaskusers.model.domain.Fruit
 import com.eriksargsyan.testtaskusers.model.domain.Gender
 import com.eriksargsyan.testtaskusers.model.domain.User
-import com.eriksargsyan.testtaskusers.model.net.FriendsNet
-import com.eriksargsyan.testtaskusers.model.net.UserNet
 import javax.inject.Inject
 
-class NetworkMapper @Inject constructor() : EntityMapper<UserNet, User> {
-    override fun fromEntityToDomain(entity: UserNet): User {
+class DatabaseMapper @Inject constructor(): EntityMapper<UserDB, User> {
+    override fun fromEntityToDomain(entity: UserDB): User {
         return User(
             id = entity.id,
             isActive = entity.isActive,
@@ -37,12 +36,12 @@ class NetworkMapper @Inject constructor() : EntityMapper<UserNet, User> {
                 "banana" -> Fruit.BANANA
                 else -> Fruit.STRAWBERRY
             },
-            friends = entity.friends.map { it.id }
+            friends = entity.friends
         )
     }
 
-    override fun toEntityFromDomain(domainModel: User): UserNet {
-        return UserNet(
+    override fun toEntityFromDomain(domainModel: User): UserDB {
+        return UserDB(
             id = domainModel.id,
             isActive = domainModel.isActive,
             age = domainModel.age,
@@ -58,12 +57,16 @@ class NetworkMapper @Inject constructor() : EntityMapper<UserNet, User> {
             latitude = domainModel.latitude,
             longitude = domainModel.longitude,
             favoriteFruit = domainModel.favoriteFruit.str,
-            friends = domainModel.friends.map { FriendsNet(it) }
+            friends = domainModel.friends
         )
     }
 
-    fun fromEntityToDomainList(entities: List<UserNet>): List<User> {
+    fun fromEntityToDomainList(entities: List<UserDB>): List<User> {
         return entities.map { fromEntityToDomain(it) }
+    }
+
+    fun toEntityFromDomainList(domainModels: List<User>): List<UserDB> {
+        return domainModels.map { toEntityFromDomain(it) }
     }
 
 }

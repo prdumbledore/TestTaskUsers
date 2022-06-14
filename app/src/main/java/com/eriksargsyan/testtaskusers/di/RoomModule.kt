@@ -1,4 +1,4 @@
-package com.eriksargsyan.testtaskusers.model.di
+package com.eriksargsyan.testtaskusers.di
 
 import android.content.Context
 import androidx.room.Room

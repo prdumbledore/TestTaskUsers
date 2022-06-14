@@ -1,11 +1,11 @@
-package com.eriksargsyan.testtaskusers.model.di
+package com.eriksargsyan.testtaskusers.di
 
 import com.eriksargsyan.testtaskusers.model.database.UserDao
-import com.eriksargsyan.testtaskusers.repository.UserRepository
-import com.eriksargsyan.testtaskusers.model.util.DatabaseMapper
-import com.eriksargsyan.testtaskusers.model.util.NetworkMapper
-import com.eriksargsyan.testtaskusers.repository.UserRepositoryImpl
-import com.eriksargsyan.testtaskusers.viewmodel.UserAPI
+import com.eriksargsyan.testtaskusers.model.net.UserAPI
+import com.eriksargsyan.testtaskusers.model.repository.UserRepository
+import com.eriksargsyan.testtaskusers.model.repository.UserRepositoryImpl
+import com.eriksargsyan.testtaskusers.util.DatabaseMapper
+import com.eriksargsyan.testtaskusers.util.NetworkMapper
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

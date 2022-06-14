@@ -1,4 +1,4 @@
-package com.eriksargsyan.testtaskusers.model.util
+package com.eriksargsyan.testtaskusers.util
 
 interface EntityMapper <Entity, DomainModel> {
 

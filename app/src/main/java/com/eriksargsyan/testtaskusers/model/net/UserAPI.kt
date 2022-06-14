@@ -1,7 +1,6 @@
-package com.eriksargsyan.testtaskusers.viewmodel
+package com.eriksargsyan.testtaskusers.model.net
 
-import com.eriksargsyan.testtaskusers.model.net.UserNet
-import retrofit2.Call
+import com.eriksargsyan.testtaskusers.model.data.net.UserNet
 import retrofit2.http.GET
 import retrofit2.http.Query
 

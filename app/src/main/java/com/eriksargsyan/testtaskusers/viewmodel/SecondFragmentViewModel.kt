@@ -7,7 +7,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.eriksargsyan.testtaskusers.model.domain.User
-import com.eriksargsyan.testtaskusers.repository.UserRepository
+import com.eriksargsyan.testtaskusers.model.repository.UserRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject

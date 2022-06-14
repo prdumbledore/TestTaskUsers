@@ -1,9 +1,9 @@
-package com.eriksargsyan.testtaskusers.model.database
+package com.eriksargsyan.testtaskusers.model.data.database
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.eriksargsyan.testtaskusers.viewmodel.UserService
+import com.eriksargsyan.testtaskusers.model.database.UserRoomDatabase
 
 @Entity(tableName = UserRoomDatabase.DATABASE_NAME)
 data class UserDB(

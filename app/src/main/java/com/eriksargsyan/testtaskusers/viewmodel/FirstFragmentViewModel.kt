@@ -7,7 +7,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.eriksargsyan.testtaskusers.model.domain.User
-import com.eriksargsyan.testtaskusers.repository.UserRepository
+import com.eriksargsyan.testtaskusers.model.repository.UserRepository
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch

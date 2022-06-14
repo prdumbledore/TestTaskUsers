@@ -1,4 +1,4 @@
-package com.eriksargsyan.testtaskusers.repository
+package com.eriksargsyan.testtaskusers.model.repository
 
 import com.eriksargsyan.testtaskusers.model.domain.User
 

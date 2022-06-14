@@ -1,4 +1,4 @@
-package com.eriksargsyan.testtaskusers.model.net
+package com.eriksargsyan.testtaskusers.model.data.net
 
 import com.google.gson.annotations.Expose
 import kotlinx.serialization.Serializable

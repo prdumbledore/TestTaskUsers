@@ -1,7 +1,7 @@
-package com.eriksargsyan.testtaskusers.model.di
+package com.eriksargsyan.testtaskusers.di
 
-import com.eriksargsyan.testtaskusers.viewmodel.UserAPI
-import com.eriksargsyan.testtaskusers.viewmodel.UserService.BASE_URL
+import com.eriksargsyan.testtaskusers.model.net.UserAPI
+import com.eriksargsyan.testtaskusers.model.net.UserService.BASE_URL
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import dagger.Module

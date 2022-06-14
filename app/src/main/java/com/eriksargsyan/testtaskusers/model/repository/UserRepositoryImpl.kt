@@ -1,11 +1,10 @@
-package com.eriksargsyan.testtaskusers.repository
+package com.eriksargsyan.testtaskusers.model.repository
 
 import com.eriksargsyan.testtaskusers.model.database.UserDao
 import com.eriksargsyan.testtaskusers.model.domain.User
-import com.eriksargsyan.testtaskusers.model.util.DatabaseMapper
-import com.eriksargsyan.testtaskusers.model.util.NetworkMapper
-import com.eriksargsyan.testtaskusers.viewmodel.UserAPI
-import kotlinx.coroutines.flow.Flow
+import com.eriksargsyan.testtaskusers.model.net.UserAPI
+import com.eriksargsyan.testtaskusers.util.DatabaseMapper
+import com.eriksargsyan.testtaskusers.util.NetworkMapper
 import javax.inject.Inject
 
 class UserRepositoryImpl @Inject constructor (
