@@ -3,33 +3,33 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
+    app:startDestination="@id/UserListFragment">
 
     <fragment
-        android:id="@+id/FirstFragment"
-        android:name="com.eriksargsyan.testtaskusers.view.FirstFragment"
-        android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
+        android:id="@+id/UserListFragment"
+        android:name="com.eriksargsyan.testtaskusers.screen.user_list.UserListFragment"
+        android:label="@string/user_list_fragment_label"
+        tools:layout="@layout/fragment_user_list">
 
         <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
+            android:id="@+id/action_UserListFragment_to_UserDetailsFragment"
+            app:destination="@id/UserDetailsFragment" />
     </fragment>
     <fragment
-        android:id="@+id/SecondFragment"
-        android:name="com.eriksargsyan.testtaskusers.view.SecondFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
+        android:id="@+id/UserDetailsFragment"
+        android:name="com.eriksargsyan.testtaskusers.screen.user_details.UserDetailsFragment"
+        android:label="@string/user_details_fragment_label"
+        tools:layout="@layout/fragment_user_details">
 
         <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
+            android:id="@+id/action_UserDetails_to_UserList"
+            app:destination="@id/UserListFragment" />
         <action
-            android:id="@+id/action_SecondFragment_self"
-            app:destination="@id/SecondFragment" />
+            android:id="@+id/action_UserDetails_self"
+            app:destination="@id/UserDetailsFragment" />
         <argument
             android:name="user"
-            app:argType="integer"
-            android:defaultValue="-1" />
+            android:defaultValue="-1"
+            app:argType="integer" />
     </fragment>
 </navigation>

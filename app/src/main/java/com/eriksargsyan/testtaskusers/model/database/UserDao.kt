@@ -10,16 +10,19 @@ import com.eriksargsyan.testtaskusers.model.data.database.UserDB
 @Dao
 interface UserDao {
 
-    @Query("SELECT * FROM user_db ORDER BY id ASC")
+    @Query("SELECT * FROM ${UserDB.TABLE_NAME} ORDER BY ${UserDB.ID} ASC")
     suspend fun getAllUsers(): List<UserDB>
 
-    @Query("SELECT * FROM user_db WHERE id = :id")
-    suspend fun getById( id: Int): UserDB
+    @Query("SELECT * FROM ${UserDB.TABLE_NAME} WHERE ${UserDB.ID} = :id")
+    suspend fun getById(id: Int): UserDB
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertUser(user: UserDB)
 
-    @Query("DELETE FROM user_db")
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertUsers(user: List<UserDB>)
+
+    @Query("DELETE FROM ${UserDB.TABLE_NAME}")
     suspend fun deleteAllUsers()
 
 }

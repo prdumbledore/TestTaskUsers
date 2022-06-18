@@ -4,19 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.SecondFragment">
+    tools:context=".screen.user_details.UserDetailsFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
+        android:layout_height="match_parent"
+        android:padding="10dp">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/card_user_about"
             style="@style/Widget.Material3.CardView.Elevated"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
             app:cardElevation="10dp"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -32,19 +31,20 @@
                     android:contentDescription="@string/gender"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:src="@tools:sample/avatars" />
 
                 <TextView
                     android:id="@+id/name"
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
                     android:layout_marginTop="16dp"
-                    android:text="@string/name"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/image_gender" />
+                    app:layout_constraintTop_toBottomOf="@id/image_gender"
+                    tools:text="@tools:sample/full_names" />
 
                 <TextView
                     android:id="@+id/age"
@@ -53,9 +53,9 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="16dp"
-                    android:text="@string/age"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/name" />
+                    app:layout_constraintTop_toBottomOf="@id/name"
+                    tools:text="Age : 32" />
 
                 <TextView
                     android:id="@+id/company"
@@ -64,9 +64,9 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="16dp"
-                    android:text="@string/company"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/age" />
+                    app:layout_constraintTop_toBottomOf="@id/age"
+                    tools:text="Company : WaveAccess" />
 
                 <LinearLayout
                     android:id="@+id/email_linear_Layout"
@@ -90,8 +90,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="16dp"
-                        android:text="@string/email"
-                        android:textColor="#1d33f5"/>
+                        android:textColor="@color/hyper_text"
+                        tools:text="some@gmail.com" />
 
                 </LinearLayout>
 
@@ -117,8 +117,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="16dp"
-                        android:text="@string/phone"
-                        android:textColor="#1d33f5"/>
+                        android:textColor="@color/hyper_text"
+                        tools:text="@tools:sample/us_phones" />
 
                 </LinearLayout>
 
@@ -129,9 +129,9 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="16dp"
-                    android:text="@string/address"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/phone_linear_Layout" />
+                    app:layout_constraintTop_toBottomOf="@id/phone_linear_Layout"
+                    tools:text="Address : Wolf street" />
 
                 <LinearLayout
                     android:id="@+id/eye_color_linear_Layout"
@@ -157,7 +157,7 @@
                         android:layout_height="20dp"
                         android:layout_marginStart="16dp"
                         android:contentDescription="@string/eye_color_str"
-                        android:text="@string/eye_color" />
+                        tools:src="@drawable/blue_eyes" />
 
                 </LinearLayout>
 
@@ -185,7 +185,7 @@
                         android:layout_height="20dp"
                         android:layout_marginStart="16dp"
                         android:contentDescription="@string/favorite_fruit_str"
-                        android:text="@string/favorite_fruit" />
+                        tools:src="@drawable/apple" />
 
                 </LinearLayout>
 
@@ -196,9 +196,10 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="16dp"
-                    android:text="@string/registered"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/favorite_fruit_linear_Layout" />
+                    app:layout_constraintTop_toBottomOf="@id/favorite_fruit_linear_Layout"
+                    tools:text="Address: " />
 
                 <LinearLayout
                     android:id="@+id/latitude_longitude_linear_Layout"
@@ -207,6 +208,7 @@
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="16dp"
                     android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/registered">
 
@@ -222,8 +224,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="16dp"
-                        android:text="@string/latitude_longitude"
-                        android:textColor="#1d33f5"/>
+                        android:textColor="@color/hyper_text"
+                        tools:text="123'234, 344'323" />
                 </LinearLayout>
 
                 <TextView
@@ -234,9 +236,11 @@
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="16dp"
                     android:layout_marginBottom="16dp"
-                    android:text="@string/about"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/latitude_longitude_linear_Layout" />
+                    app:layout_constraintTop_toBottomOf="@id/latitude_longitude_linear_Layout"
+                    tools:text="About information." />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -247,7 +251,6 @@
             style="@style/Widget.Material3.CardView.Elevated"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
             app:cardElevation="10dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/card_user_about">
@@ -266,23 +269,20 @@
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"/>
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recyclerUserList"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/friends_header"/>
+                    app:layout_constraintTop_toBottomOf="@id/friends_header"
+                    tools:listitem="@layout/item_layout_user" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
-
         </androidx.cardview.widget.CardView>
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 </androidx.core.widget.NestedScrollView>

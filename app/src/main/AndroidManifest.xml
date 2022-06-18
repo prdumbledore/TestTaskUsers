@@ -19,7 +19,7 @@
         android:theme="@style/Theme.TestTaskUsers"
         tools:targetApi="31">
         <activity
-            android:name=".view.MainActivity"
+            android:name=".screen.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.TestTaskUsers"
             android:launchMode="singleTask">
