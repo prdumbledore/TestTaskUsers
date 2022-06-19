@@ -1,16 +1,16 @@
 package com.eriksargsyan.testtaskusers.model.repository
 
-import com.eriksargsyan.testtaskusers.model.database.UserDao
 import com.eriksargsyan.testtaskusers.model.data.domain.User
+import com.eriksargsyan.testtaskusers.model.database.UserDao
 import com.eriksargsyan.testtaskusers.model.network.SettingsStorage
 import com.eriksargsyan.testtaskusers.model.network.UserAPI
-import com.eriksargsyan.testtaskusers.util.Dispatchers
+import com.eriksargsyan.testtaskusers.util.IO
 import com.eriksargsyan.testtaskusers.util.UserDatabaseMapper
 import com.eriksargsyan.testtaskusers.util.UserNetworkMapper
-
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
+import kotlin.coroutines.CoroutineContext
 
 interface UserRepository {
     suspend fun getUsers(): List<User>
@@ -23,24 +23,25 @@ class UserRepositoryImpl @Inject constructor(
     private val userDao: UserDao,
     private val settingsStorage: SettingsStorage,
     private val userDatabaseMapper: UserDatabaseMapper,
-    private val userNetworkMapper: UserNetworkMapper
+    private val userNetworkMapper: UserNetworkMapper,
+    @IO private val dispatcherIO: CoroutineContext
 ) : UserRepository {
 
     override suspend fun getUsers(): List<User> =
-        withContext(Dispatchers.IO) {
+        withContext(dispatcherIO) {
             val userDB = userDao.getAllUsers()
             return@withContext userDatabaseMapper.fromEntityToDomainList(userDB)
         }
 
 
     override suspend fun getUser(id: Int): User =
-        withContext(Dispatchers.IO) {
+        withContext(dispatcherIO) {
             val userDB = userDao.getById(id)
             return@withContext userDatabaseMapper.fromEntityToDomain(userDB)
         }
 
     override suspend fun cacheAndGet(): List<User> =
-        withContext(Dispatchers.IO) {
+        withContext(dispatcherIO) {
             val token = settingsStorage.getToken() ?: throw IllegalStateException()
             val userNet = userAPI.getUsers(token = token)
             val users = userNetworkMapper.fromEntityToDomainList(userNet)
