@@ -40,7 +40,14 @@ android {
         viewBinding true
     }
 
+    testOptions {
+        unitTests.returnDefaultValues = true
+
+        unitTests.includeAndroidResources = true
+    }
+
 }
+
 
 dependencies {
 
@@ -60,6 +67,7 @@ dependencies {
     implementation "com.squareup.retrofit2:converter-gson:2.9.0"
     implementation "com.squareup.okhttp3:okhttp:4.9.1"
 
+
     // room
     def room_version = "2.4.2"
     implementation "androidx.room:room-ktx:$room_version"
@@ -73,8 +81,10 @@ dependencies {
     implementation "com.google.dagger:hilt-android:2.40"
     kapt "com.google.dagger:hilt-compiler:2.40"
 
+
     testImplementation 'junit:junit:4.13.2'
-    testImplementation 'org.mockito:mockito-core:4.0.0'
-    testImplementation 'org.mockito.kotlin:mockito-kotlin:4.0.0'
-    testImplementation("com.squareup.okhttp3:mockwebserver:4.7.2")
+    testImplementation "org.mockito:mockito-core:4.6.1"
+    testImplementation "org.mockito.kotlin:mockito-kotlin:4.0.0"
+    testImplementation 'org.mockito:mockito-inline:2.7.21'
+
 }

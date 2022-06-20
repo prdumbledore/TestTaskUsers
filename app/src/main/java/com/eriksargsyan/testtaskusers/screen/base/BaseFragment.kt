@@ -7,7 +7,9 @@ import android.view.ViewGroup
 import androidx.annotation.StringRes
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
+import com.eriksargsyan.testtaskusers.model.repository.UserRepository
 import com.google.android.material.snackbar.Snackbar
+import javax.inject.Inject
 
 open class BaseFragment<BINDING : ViewBinding>(
     val inflateFun: (

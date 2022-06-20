@@ -7,10 +7,10 @@ import com.eriksargsyan.testtaskusers.model.network.UserAPI
 import com.eriksargsyan.testtaskusers.util.IO
 import com.eriksargsyan.testtaskusers.util.UserDatabaseMapper
 import com.eriksargsyan.testtaskusers.util.UserNetworkMapper
+import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
-import kotlin.coroutines.CoroutineContext
 
 interface UserRepository {
     suspend fun getUsers(): List<User>
@@ -24,7 +24,7 @@ class UserRepositoryImpl @Inject constructor(
     private val settingsStorage: SettingsStorage,
     private val userDatabaseMapper: UserDatabaseMapper,
     private val userNetworkMapper: UserNetworkMapper,
-    @IO private val dispatcherIO: CoroutineContext
+    @IO private val dispatcherIO: CoroutineDispatcher
 ) : UserRepository {
 
     override suspend fun getUsers(): List<User> =

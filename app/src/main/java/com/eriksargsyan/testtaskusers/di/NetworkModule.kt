@@ -43,4 +43,8 @@ object NetworkModule {
         return retrofit.create(UserAPI::class.java)
     }
 
+    @Provides
+    @IO
+    fun ioDispatcher(): CoroutineDispatcher = Dispatchers.IO
+
 }

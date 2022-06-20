@@ -6,7 +6,6 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import kotlinx.coroutines.launch
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -48,7 +47,7 @@ class UserListFragment : BaseFragment<FragmentUserListBinding>(
         with(binding) {
             recyclerUserList.apply {
                 setHasFixedSize(true)
-                layoutManager = LinearLayoutManager(context)
+                layoutManager = LinearLayoutManager(requireContext())
                 adapter = userAdapter
             }
             swipeRefreshLayout.setOnRefreshListener {
